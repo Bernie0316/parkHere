@@ -28,10 +28,3 @@ export async function loadHeaderFooter (){
 
   // updateCartCount();
 }
-// function updateCartCount() {
-//   const countElement = document.querySelector(".cart-count");
-//   const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
-//   if (countElement) {
-//     countElement.textContent = cart.length;
-//   }
-// }
