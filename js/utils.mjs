@@ -1,3 +1,19 @@
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+        clear ? parentElement.innerHTML = "" : 0; 
+        const htmlStrings = list.map(templateFn);
+        if(clear){
+          parentElement.innerHTML = "";
+        };
+        parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const park = urlParams.get(param)
+  return park
+}
+
 export function renderWithTemplate(template, parentElement, data, callback){
   parentElement.innerHTML = template;
   if(callback){
@@ -15,8 +31,8 @@ export async function loadTemplate(path){
 export async function loadHeaderFooter (){
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
-  const headerContent = await loadTemplate("/public/partials/header.html");
-  const footerContent = await loadTemplate("/public/partials/footer.html");
+  const headerContent = await loadTemplate("public/partials/header.html");
+  const footerContent = await loadTemplate("public/partials/footer.html");
 
   try {
     renderWithTemplate(headerContent, header);
@@ -28,3 +44,7 @@ export async function loadHeaderFooter (){
 
   // updateCartCount();
 }
+
+export function capitalizeFirstLetter(text) {
+    return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}  

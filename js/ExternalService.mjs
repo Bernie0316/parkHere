@@ -1,4 +1,6 @@
+const proxy = 'https://cors-anywhere.herokuapp.com/';
 const xinzhuURL = 'https://opendata.hccg.gov.tw/OpenDataDetail.aspx?n=1&s=452';
+const fullUrl = proxy + xinzhuURL;
 
 async function convertToJson(response) {
   if (!response.ok) {
@@ -10,7 +12,7 @@ async function convertToJson(response) {
 export default class ExternalServices {
   constructor() {}
   async getData() {
-    const response = await fetch(xinzhuURL, {
+    const response = await fetch(fullUrl, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,10 +21,14 @@ export default class ExternalServices {
     const data = await convertToJson(response);
     return data;
   }
-  async findParkByNo(parkNo) {
-    const response = await fetch(`${xinzhuURL}park/${PARKNO}`);
-    const data = await convertToJson(response);
-    console.log(data);
-    return data;
+  async findParkById(parkNo) {
+    try {
+      const allParks = await this.getAllParks();
+      const target = allParks.find(p => p.PARKNO === parkNo);
+      return target || null;
+    } catch (err) {
+      console.error("findParkById error:", err);
+      return null;
+    }
   }
 }
