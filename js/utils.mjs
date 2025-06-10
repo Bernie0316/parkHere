@@ -41,8 +41,16 @@ export async function loadHeaderFooter (){
   catch (error) {
     console.error("Error loading header or footer:", error);
   }
+}
 
-  // updateCartCount();
+export async function loadSubpageHeaderFooter (){
+  const header = document.querySelector("header");
+  const footer = document.querySelector("footer");
+  const headerContent = await loadTemplate("../public/partials/header.html");
+  const footerContent = await loadTemplate("../public/partials/footer.html");
+
+  renderWithTemplate(headerContent, header);
+  renderWithTemplate(footerContent, footer);
 }
 
 export function capitalizeFirstLetter(text) {
