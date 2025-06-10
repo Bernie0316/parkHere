@@ -1,11 +1,11 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadSubpageHeaderFooter } from "../js/utils.mjs"
+
+loadSubpageHeaderFooter();
 
 // 因為市府API有 CORS 限制，使用 cors-anywhere 當中介
 const proxy = 'https://cors-anywhere.herokuapp.com/';
 const url = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?1111104155049';
 const fullUrl = proxy + url;
-
-loadHeaderFooter();
 
 async function getData() {
     try {
