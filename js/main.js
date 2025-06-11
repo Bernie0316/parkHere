@@ -12,12 +12,14 @@ async function renderParks() {
     const container = document.querySelector('#parkList');
 
     container.innerHTML = parks.map(p => `
-      <div class="park-card">
-        <h2>${p.AREA} - ${p.NAME}</h2>
-        <p>地址：${p.ADDRESS}</p>
-        <p>總車位：${p.TOTALSPACE}</p>
-        <p>剩餘車位：${p.SURPLUSSPACE ?? '未知'}</p>
-      </div>
+      <li class="park-card">
+        <a href="/parking_pages/?park=${p.PARKNO}">
+          <h2>${p.PARKINGNAME}</h2>
+          <p>地址：${p.ADDRESS}</p>
+          <p>剩餘車位：${p.FREEQUANTITY ?? '未知'}</p>
+          <p>總車位：${p.TOTALQUANTITY}</p>
+        </a>
+      </li>
     `).join('');
   } catch (err) {
     console.error("載入停車場資料失敗:", err);
