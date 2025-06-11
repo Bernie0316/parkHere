@@ -21,6 +21,9 @@ export default class ExternalServices {
     const data = await convertToJson(response);
     return data;
   }
+  async getAllParks() {
+    return await this.getData();
+  }
   async findParkById(parkNo) {
     try {
       const allParks = await this.getAllParks();

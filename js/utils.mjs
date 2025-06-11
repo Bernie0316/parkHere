@@ -7,6 +7,9 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
         parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
 
+// const queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+// const product = urlParams.get('product')
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
