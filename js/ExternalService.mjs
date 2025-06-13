@@ -1,8 +1,7 @@
 const apiurl = 'https://bernie0316.github.io/parkHere/public/data/parking.json';
-// const proxy = 'https://cors-anywhere.herokuapp.com/';
 
-// 暫時性的
-// const proxy = 'http://localhost:8080/';
+// cors 暫時性破解：
+// const proxy = 'https://cors-anywhere.herokuapp.com/';
 // const xinzhuURL = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?ParkID=1111104155049';
 // const fullUrl = proxy + xinzhuURL;
 const fullUrl = apiurl;
@@ -17,12 +16,14 @@ async function convertToJson(response) {
 export default class ExternalServices {
   constructor() {}
   async getData() {
-    const response = await fetch(fullUrl, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    const response = await fetch(fullUrl
+    //   , {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // }
+  );
     const data = await convertToJson(response);
     return data;
   }
@@ -31,7 +32,7 @@ export default class ExternalServices {
     return await this.getData();
   }
 
-  async findParkById(parkNo) {
+  async findParkByNo(parkNo) {
     try {
       const allParks = await this.getAllParks();
       const target = allParks.find(p => p.PARKNO === parkNo);

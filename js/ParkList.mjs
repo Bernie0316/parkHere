@@ -1,15 +1,17 @@
 import { capitalizeFirstLetter, renderListWithTemplate } from "./utils.mjs";
 
 function parkCardTemplate(park) {
-  return `<li class="product-card">
+  return `<li class="park-card">
     <a href="/park_pages/?park=${park.PARKNO}">
-    //   <h2 class="card__brand">${park.Brand.PARKINGNAME}</h2>
-    //   <h3 class="card__name">${park.PARKINGNAME}</h3>
+      <h2 class="card__brand">${park.PARKINGNAME}</h2>
+      <p>地址：${park.ADDRESS}</p>
+      <p>剩餘車位：${park.FREEQUANTITY ?? '未知'}</p>
+      <p>總車位：${park.TOTALQUANTITY}</p>      
     </a>
   </li>`;
 }
 
-export default class ProductList {
+export default class ParkList {
     constructor(dataSource, listElement) {
         this.dataSource = dataSource;
         this.listElement = listElement;
