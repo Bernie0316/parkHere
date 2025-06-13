@@ -1,6 +1,6 @@
 // 資料來源工具，用來取得產品資料
 import ExternalServices from "./ExternalService.mjs";
-// 負責顯示商品列表的 class
+// 負責顯示商品列表的 class （框框裡是廢話）
 import ParkList from "./parkList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
