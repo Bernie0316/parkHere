@@ -1,9 +1,11 @@
-const proxy = 'https://cors-anywhere.herokuapp.com/';
+const apiurl = 'https://bernie0316.github.io/parkHere/public/data/parking.json';
+// const proxy = 'https://cors-anywhere.herokuapp.com/';
 
 // 暫時性的
 // const proxy = 'http://localhost:8080/';
-const xinzhuURL = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?ParkID=1111104155049';
-const fullUrl = proxy + xinzhuURL;
+// const xinzhuURL = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?ParkID=1111104155049';
+// const fullUrl = proxy + xinzhuURL;
+const fullUrl = apiurl;
 
 async function convertToJson(response) {
   if (!response.ok) {
@@ -18,7 +20,6 @@ export default class ExternalServices {
     const response = await fetch(fullUrl, {
       method: 'GET',
       headers: {
-        'Origin': 'http://localhost:5500', // 加這個看看
         'Content-Type': 'application/json'
       }
     });
