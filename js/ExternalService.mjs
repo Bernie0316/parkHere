@@ -1,10 +1,10 @@
-// const apiurl = 'https://bernie0316.github.io/parkHere/public/data/parking.json';
-// const fullUrl = apiurl;
+const apiurl = 'https://bernie0316.github.io/parkHere/public/data/parking.json';
+const fullUrl = apiurl;
 
 // cors 暫時性破解：
-const proxy = 'https://cors-anywhere.herokuapp.com/';
-const xinzhuURL = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?ParkID=1111104155049';
-const fullUrl = proxy + xinzhuURL;
+// const proxy = 'https://cors-anywhere.herokuapp.com/';
+// const xinzhuURL = 'https://hispark.hccg.gov.tw/OpenData/GetParkInfo?ParkID=1111104155049';
+// const fullUrl = proxy + xinzhuURL;
 
 async function convertToJson(response) {
   if (!response.ok) {
