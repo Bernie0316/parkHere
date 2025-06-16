@@ -16,13 +16,14 @@ export default class ParkDetails {
 
     renderProductDetails() {
         parkDetailsTemplate(this.park);
+        console.log('渲染產品詳情:', this.park);
     }
 }
 
 function parkDetailsTemplate(park) {
     // details page模板
     document.querySelector('h2').textContent = park.PARKINGNAME;
-    document.querySelector('p').textContent = park.ADDRESS;
-    document.querySelector('p').textContent = `剩餘車位：${park.FREEQUANTITY ?? '未知'}`;
-    document.querySelector('p').textContent = `總車位：${park.TOTALQUANTITY}`;
+    document.querySelector('#ADDRESS').textContent = `剩餘車位：${park.ADDRESS}`;
+    document.querySelector('#FREEQUANTITY').textContent = `剩餘車位：${park.FREEQUANTITY ?? '未知'}`;
+    document.querySelector('#TOTALQUANTITY').textContent = `總車位：${park.TOTALQUANTITY}`;
 }
