@@ -48,3 +48,4 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function toRad(deg) {
   return deg * (Math.PI / 180);
 }
+// add branchs
