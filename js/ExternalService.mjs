@@ -28,6 +28,23 @@ export default class ExternalServices {
     return data;
   }
 
+  getCurrentLocation() {
+    return new Promise((resolve, reject) => {
+      if (!navigator.geolocation) {
+        reject('Geolocation is not supported by this browser.');
+      } else {
+        navigator.geolocation.getCurrentPosition((pos) => {
+          resolve({
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+          });
+        }, 
+        (error) => reject('定位失敗：' + error.message)
+      );
+      }
+    });
+  }
+
   async getAllParks() {
     return await this.getData();
   }
@@ -43,3 +60,5 @@ export default class ExternalServices {
     }
   }
 }
+
+///////////////////////
